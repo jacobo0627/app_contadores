@@ -1,0 +1,58 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.env/
+.venv/
+
+# Django stuff
+db.sqlite3
+/media/
+staticfiles/
+*.log
+
+# Local settings
+*.local
+*.env
+.env.*
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDEs & editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Mac / Windows files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.tmp
+*.old
