@@ -1,0 +1,11 @@
+{% extends 'dashboard_base.html' %}
+{% block dashboard_content %}
+<h3>Subir Documento 📂</h3>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="archivo" class="form-control mb-2" required>
+    <button class="btn btn-dark">Subir</button>
+</form>
+
+{% endblock %}

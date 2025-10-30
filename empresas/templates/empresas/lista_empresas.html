@@ -1,0 +1,18 @@
+{% extends 'dashboard_base.html' %}
+{% block dashboard_content %}
+<h3>Empresas Asignadas 🏢</h3>
+<table class="table table-bordered">
+  <tr>
+    <th>Empresa</th>
+    <th>NIT</th>
+    <th>Cliente</th>
+  </tr>
+  {% for e in empresas %}
+  <tr>
+    <td>{{ e.nombre }}</td>
+    <td>{{ e.nit }}</td>
+    <td>{{ e.cliente.email }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

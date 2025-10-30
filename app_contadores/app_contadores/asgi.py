@@ -11,6 +11,7 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app_contadores.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app_contadores.app_contadores.settings')
+
 
 application = get_asgi_application()

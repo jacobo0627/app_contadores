@@ -11,6 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app_contadores.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app_contadores.app_contadores.settings')
+
+WSGI_APPLICATION = 'app_contadores.app_contadores.wsgi.application'
 
 application = get_wsgi_application()

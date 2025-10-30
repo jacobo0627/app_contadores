@@ -1,0 +1,30 @@
+{% extends 'dashboard_base.html' %}
+{% block dashboard_content %}
+<h3>Mis Documentos</h3>
+
+<a href="/cliente/subir/" class="btn btn-success mb-3">+ Subir Documento</a>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Archivo</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+    </tr>
+    {% for d in docs %}
+    <tr>
+        <td><a href="{{ d.archivo.url }}" target="_blank">📎 Ver</a></td>
+        <td>{{ d.fecha_subida }}</td>
+        <td>
+            {% if d.estado == "pendiente" %}
+                <span class="badge bg-warning text-dark">Pendiente</span>
+            {% elif d.estado == "aprobado" %}
+                <span class="badge bg-success">Aprobado</span>
+            {% else %}
+                <span class="badge bg-danger">Rechazado</span>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

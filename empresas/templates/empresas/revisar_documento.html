@@ -1,0 +1,48 @@
+{% extends 'dashboard_base.html' %}
+{% block dashboard_content %}
+<h3>Revisar Documento</h3>
+
+<p><b>Empresa:</b> {{ doc.empresa.nombre }}</p>
+<p><b>Archivo:</b> <a href="{{ doc.archivo.url }}" target="_blank">📎 Ver archivo</a></p>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label class="form-label">Estado</label>
+    <select name="estado" class="form-control mb-2">
+        <option value="pendiente" {% if doc.estado == 'pendiente' %}selected{% endif %}>Pendiente</option>
+        <option value="aprobado" {% if doc.estado == 'aprobado' %}selected{% endif %}>Aprobado</option>
+        <option value="rechazado" {% if doc.estado == 'rechazado' %}selected{% endif %}>Rechazado</option>
+    </select>
+
+    <label class="form-label">Comentarios</label>
+    <textarea name="comentarios" class="form-control mb-2">{{ doc.comentarios }}</textarea>
+
+    <button class="btn btn-success w-100 mt-2">Guardar</button>
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form");
+    
+    form.addEventListener("submit", (e) => {
+        e.preventDefault(); // Evita enviar de una vez
+
+        let estado = document.querySelector("select[name='estado']").value;
+        let mensaje = estado === "aprobado"
+            ? "✅ Documento aprobado correctamente"
+            : "❌ Documento rechazado";
+
+        Swal.fire({
+            title: "Procesando...",
+            html: mensaje,
+            timer: 1500,
+            timerProgressBar: true,
+            didClose: () => form.submit() // Enviar al cerrar
+        });
+    });
+});
+</script>
+
+
+{% endblock %}

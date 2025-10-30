@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-3">
+        <div class="list-group">
+            {% if user.role == 'contador' %}
+                <a href="/contador/" class="list-group-item list-group-item-action">🏢 Empresas</a>
+                <a href="/contador/clientes/" class="list-group-item list-group-item-action">👥 Clientes</a>
+                <a href="/contador/documentos/" class="list-group-item list-group-item-action">📂 Documentos</a>
+            {% else %}
+                <a href="/cliente/" class="list-group-item list-group-item-action">📂 Mis documentos</a>
+                <a href="/cliente/empresa/" class="list-group-item list-group-item-action">🏢 Mi empresa</a>
+            {% endif %}
+            <a href="/logout/" class="list-group-item list-group-item-action text-danger">🚪 Cerrar Sesión</a>
+        </div>
+    </div>
+
+    <div class="col-9">
+        {% block dashboard_content %}
+        {% endblock %}
+    </div>
+</div>
+
+{% endblock %}
